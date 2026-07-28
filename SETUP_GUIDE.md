@@ -128,7 +128,19 @@ const char* WIFI_PASS = "YOUR_WIFI_PASSWORD";
 
 Replace those placeholders with your own WiFi network name and password.
 
-## 6. Select the Correct Board and Port
+## 6. Add Your WiFi Credentials
+
+Before uploading, update the Notion values in the code:
+
+```cpp
+const char* NOTION_SECRET = "YOUR_NOTION_SECRET";
+const char* NOTION_PAGE_ID = "YOUR_PAGE_ID";
+```
+
+Replace those placeholders with your own Notion 32-character code and Notion Integrations API key 
+
+
+## 7. Select the Correct Board and Port
 
 In Arduino IDE:
 
@@ -145,7 +157,7 @@ If no port appears:
 - Try another USB cable
 - Make sure the cable supports data, not only charging
 
-## 7. Upload the Code
+## 8. Upload the Code
 
 Once everything is configured:
 
@@ -155,7 +167,7 @@ Once everything is configured:
 
 On some ESP32 boards, you may need to hold the **BOOT** button during upload if flashing does not start automatically.
 
-## 8. First Boot
+## 9. First Boot
 
 After a successful upload, the device should:
 
@@ -171,7 +183,7 @@ You can also open the Serial Monitor to check boot messages:
 
 In many cases, the local IP address will be printed there after WiFi connection succeeds.
 
-## 9. Open the Web Interface
+## 10. Open the Web Interface
 
 Once the ESP32 is connected to your network, open its local IP address in your browser.
 
@@ -188,7 +200,7 @@ From the browser interface, you can adjust things like:
 
 This makes it easy to personalize the device without editing the code every time.
 
-## 10. Troubleshooting
+## 11. Troubleshooting
 
 ### The display stays black or white
 
@@ -224,6 +236,14 @@ This makes it easy to personalize the device without editing the code every time
 - Confirm WiFi is connected
 - Check that the location values are valid
 - Verify that API requests are not being blocked
+
+### Notion does not update or show the Notion page contents
+-Confirm, that the notion page is connected with the API 
+1. Open the specific Notion page you want shown on Deskbuddy
+2. Click the ••• menu (top right of the page)
+3. Scroll to Connections → Add connections
+4. Select your "Deskbuddy" integration
+5. Confirm it now shows as connected — if you skip this, every API call will silently return empty results even with a valid key.
 
 ## Final Notes
 
