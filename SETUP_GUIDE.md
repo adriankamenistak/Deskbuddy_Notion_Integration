@@ -72,6 +72,37 @@ Find the TFT_eSPI library folder on your computer and locate:
 Then either:
 
 - Replace it with a working setup for your display
+  - usualy just replace the entire contents of the file with this:
+  ```
+  //#define ILI9341_DRIVER
+  #define ST7789_DRIVER
+  #define TFT_WIDTH  240
+  #define TFT_HEIGHT 320
+
+  // Had to change RGB Order
+  #define TFT_RGB_ORDER TFT_BGR
+
+  #define TFT_MISO 12
+  #define TFT_MOSI 13
+  #define TFT_SCLK 14
+  #define TFT_CS   15
+  #define TFT_DC   2
+  #define TFT_RST  -1
+  #define TFT_BL   21
+  #define TFT_BACKLIGHT_ON HIGH
+
+  // Fonts
+  #define LOAD_GLCD
+  #define LOAD_FONT2
+  #define LOAD_FONT4
+  #define LOAD_FONT6
+  #define LOAD_FONT7
+  #define LOAD_FONT8
+  #define LOAD_GFXFF
+
+  #define SPI_FREQUENCY       40000000
+  #define SPI_TOUCH_FREQUENCY 2500000
+  ```
 - Or edit the driver and pin settings manually
 
 If you are using a specific ESP32 touchscreen board variant, it is a good idea to keep a backup of your working `User_Setup.h`.
